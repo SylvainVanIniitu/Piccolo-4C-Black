@@ -44,7 +44,7 @@ or tanukirecords.bandcamp.com/album/vulgar-display-of-debug-vol-3-thrift-thrift-
 
 and yes, invite me for a workshop somewhere, and let me play a concert in your city ! 
 
-P*L*U*R
+P x L x U x R
 
 
 

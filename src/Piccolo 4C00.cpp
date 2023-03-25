@@ -20,9 +20,9 @@ P::::::::P          i::::::i  cc:::::::::::::::c  cc:::::::::::::::c oo:::::::::
 PPPPPPPPPP          iiiiiiii    cccccccccccccccc    cccccccccccccccc   ooooooooooo   llllllll   ooooooooooo                4444444444    cccccccccccccccc
 
 Copyright (C) 2016-2023 sylvain van iniitu - All rights reserved.
-www.iniitu.net 
+www.iniitu.net
    This program is free software; you can redistribute it and/or
-   modify it under the terms of the MIT License
+   modify it under the terms of the Creative Commons 4.0 CC BY-NC-SA Licence
 
 */
 
