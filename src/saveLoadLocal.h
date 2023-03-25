@@ -6,7 +6,7 @@
 // QUAND ON RAJOUTE DES VARIABLES Qu'on VEUT SAUVER DANS KARAKT
 // PROCEDURE A SUIVRE
 
-// 1
+// 1 -
 //  aller dans saveCurrentandMemKarakt() dans SaveLoadLocal.h
 //  on rajoute en bas de cette fonction des _printToKarakt avec des chiffres consécutifs, ainsi que le nom de variable et description
 //  faire un compile pour vérifier que OK

@@ -4,7 +4,7 @@
 // const int dureeLayer = 20000 ;
 // const int nbNotes = 20;
 
-byte val(0);
+byte val(0); //
 // objectif :
 // à partir des tableaux melodyMatrix et melodyMatrixTime
 // créer 2 piles de notes, une pour celles qui doivent être jouées et une pour celles qui doivent être éteintes

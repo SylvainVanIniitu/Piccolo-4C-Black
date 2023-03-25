@@ -10,6 +10,7 @@
 
 // essayer la creation via new de nouveau tableaux de ce type
 // et en récupérer les données
+//
 
 typedef struct pileNote pileNote; // poids initial 19 byte !!!  doit être optimisé !
 
