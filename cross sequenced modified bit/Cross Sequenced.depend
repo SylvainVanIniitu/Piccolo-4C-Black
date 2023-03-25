@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1606842186 source:l:\blockx\cross_sequenced\cross sequenced\main.cpp
+	<iostream>
+	<math.h>
+	<string.h>
+	<vector>
+	<string>
+	<windows.h>
+	<stdlib.h>
+

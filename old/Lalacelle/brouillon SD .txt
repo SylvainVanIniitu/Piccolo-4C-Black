@@ -1,0 +1,25 @@
+Dans TransfoArray : modifier en rajoutant -nbSequencesMax
+
+    {354, 0 - nbSequencesMax, 200, TRANSFO_NO_VALUE}, // DROP velocity
+
+ bien noter quel est le floor ( ici 0 )
+
+ dans TransfoAfffichage aller modifier   
+   
+    /////////////////////////////
+    // BLACK 08 
+    /////////////////////////////
+
+    case  : 
+    { //  
+        affiche = afficheValueStraightOrFromSequence(potVal2, "%", 0);
+        printRot2(affiche, 16, 300, 3);
+    }
+    break;
+
+     
+dans TransfoProcess, aller voir la valeur modifier
+       
+faire un search général sur cette valeur et modifier 
+
+    int nowDropPourBarocco = getValueStraightOrFromSequence(dropPourBarocco[i], 0 );

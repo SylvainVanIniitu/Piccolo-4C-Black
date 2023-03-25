@@ -1,0 +1,547 @@
+// FICHIER DE COLLECTE DE VARIABLES POUR KARAKT 
+// Vérifier que n'ait rien d'autre que (BYTE) INT (LONG) BOOL 
+// pas de FLOAT !!! 
+// RELIRE PLUSIEURS FOIS POUR BIEN PRECISER CE QUE VA SAUVER KARAKT !!!!
+// SURTOUT : DELAY, DENDE, BAROCCO, KANNON, MARKOV, FIDELITY, FID LAYER 
+// MAIS PEUT ETRE : SEQ, EVT, CCMOD ACTIFS ?
+
+// Grandes Constantes, variables en fc de la mémoire à libérer
+// les sauver une par une
+// en éliminant ce qui est sauvé par ailleurs : SEQ, EVTS, CC, REDIRECT, etc.
+
+// ------------------------------------------------------------------------
+// PRIORITES
+// CORRIGER LA PLUPART DES VALEURS BYTE EN INT !  
+// ------------------------------------------------------------------------
+
+// DELAYS Par layer 
+// DONE 24/3/2020
+
+// DENDE in PICCOLO
+// DONE 25/3/2020
+
+
+// OMIT END
+// DONE 26/3/2020
+
+// DRUNK
+// DONE 26/3/2020
+
+// NEW Global Markov
+// DONE 26/3/2020
+
+//Barocco
+// DONE 26/3/2020
+
+// VARIATIONS
+// DONE 26/3/2020
+
+// PITCH MS
+// DONE 26/3/2020
+
+// DYN SWING
+// DONE 26/3/2020
+
+// Fidelity Whole Layer
+// DONE 26/3/2020
+
+// modulo layer
+// DONE 26/3/2020
+
+// dynramic harmonize
+// DONE 26/3/2020
+
+// POLES
+// DONE 26/3/2020
+
+// autoharmonize
+// DONE 26/3/2020
+
+// syncop BUG
+// DONE 26/3/2020
+
+// KANNON multi layer
+// DONE 27/3/2020
+
+// PAN + DERAZER
+// DONE 27/3/2020
+
+// GABBERISM
+// DONE 27/3/2020
+
+
+
+
+
+
+// ------------------------------------------------------------------------
+// STANDBY 
+// CORRIGER LA PLUPART DES VALEURS BYTE EN INT !  
+// ------------------------------------------------------------------------
+
+
+
+// TAP BPM
+bool tapBPM = false;
+
+// F8 Send
+byte nbBeatsPourLayer1 = 1;
+bool sendF8 = false;
+long dureeF8 = 625000 / 133; // bpm 133 d'office
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------
+// NON PRIORITAIRES
+// ------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------
+// INCERTAIN SUR PERTINENCE 
+// ------------------------------------------------------------------------
+
+// TWOPLETS
+int ecartTwoplets = 0;
+int ecartTwoplets32 = 0;
+bool msecTwoplets = true; // devient faux si c'est en 32èmes
+
+// CUT SLICE
+byte cutSlice = 2;
+
+
+
+// STEPZ
+byte stepVelocity = 100;
+byte stepChannel = 0;
+byte nbStepz = 4;    // correspond au max au nombre de boutons physiques ! sera max 8 ou 16 !
+byte nbSubStepz = 3; // correspond au nombre de sous-divisions, triplets, quadruplets, etc pour un step
+byte currentStepzNote = 60;
+byte stopModeStepz = 0; // 0 = subStepz 1 = stepz 2=10msec 3=rien
+byte nbStepzAffiches = 4;
+byte nbStepzFor1BPM = 1;   //
+byte nbBPM_Stepz = 133;    // à comparer avec autre valeur de BPM dans le software
+byte currentPageStepz = 0; // aura des valeurs plus grandes si multiple affichage
+byte numberMaxPageStepz = 0;
+
+// SPANArp
+long spanArp[nbLayer] = {30, 30, 30, 30}; // msec
+byte sortMode[nbLayer] = {0};
+byte ascendantMode[nbLayer] = {0};
+
+
+// ***************************************
+// 2C22 CHECKED UNTIL HERE 11h31 
+// ***************************************
+
+
+
+bool eraseRecording = false;
+
+
+byte valueC60 = 60; // crée le C60, mais on peut en modifier la valeur
+
+unsigned int nbMaxDeNotesParLayer[nbLayer] = {10000, 10000, 10000, 10000};
+byte modeDeletionWhenExtraNotes[nbLayer] = {1, 1, 1, 1};
+
+// INITIALISATION dans subpats
+bool vel2Vol[16] = {false};
+
+unsigned long tapBegin, tapEnd, newTempo;
+bool tempoStarted = false;
+
+double timeZero = 0;
+
+const byte nbLFO = 16; // ça me paraît bien pour commencer
+
+
+long BPM = 0;
+
+// softMute
+bool softMute = false;
+
+// FunkyVel pour midi player
+byte FunkyVelValueMIDIPlayer = 0;
+
+// Octaver
+byte octaverPercent = 100;
+byte octaverRatioNum = 1;
+byte octaverRatioDen = 1;
+
+
+// Modulo Event by Layer
+byte status270(0);
+
+// Hash
+byte hashSegments = 4;
+byte hashPercentRepeats = 0;
+byte hashNbRepeatsMax = 1;
+byte hashPercentPermute = 100;
+byte hashPercentInvert = 0;
+byte hashUnify = true;
+
+// AutoCleanUp
+byte rememberCleanUpChoice = 1;
+bool autoCleanUp = true;
+
+// modif Accou
+bool tapAccou(false);
+
+// byte tailleChaineMarkov (0);
+// bool markovChainGlobal(false);
+// int markovTable[markovTailleMax + 1] = {0};
+// byte currentTailleMarkovTable{0};
+// SUPPRIMER L ANCIEN MARKOV SVP 
+
+
+bool softPass(false);
+ 
+byte targetVelociteMin(50);
+byte targetVelociteMax(126);
+
+// variables pour Cell
+// tableau qui contient jusque 15 valeurs initiales.   15 est le nombre de pads sur le WavePad
+// chaque fois qu'une valeur sera consolidée, le nb de valeurs entrées est +1
+// au delà on n'enregistre plus rien
+
+byte nbValeursDansCell(0);
+cellBijection tableauCell[nbValeursMaxPourCell];
+// 2C02 remplacement de l'array par un struct, correction de la tailleCell qui était inutilement énorme ( 64 pour 4 ! )
+
+// poof est une version plus simple du bipolar : un seule pole, une seule valeur = 1 msec et un max
+// le min est 0
+
+byte noteToKill(0);
+bool killingNote(false);
+
+bool midiThru = true ; // 2C28 true d'office, car toujours utilisé ainsi 
+byte channelForPlay1Note(0);
+
+byte typeFuse(0);
+byte pcAB(0);
+
+byte recordMode = 1;               // çàd enregistre par défaut la source avec son CHANNEL
+byte RndUpScope = 1;
+int DeplaceScope = 200;
+
+// float fracRatio;
+double realRatio;
+
+byte ThruWhere = 100; // valeurs 0 à 15 enverront à terme vers le channel spécifié ( code 0 = CH midi 1 )
+// si valeur = 100 : midi Thru software = OFF
+
+
+bool automodification = false;  // si devient vrai, tous les automodificationtime, il y a aura modif automatique
+bool Daubymodification = false; // si devient vrai, lance des modifications à chaque itération pour la TX81Z
+
+byte activeLayer = 00000001;
+byte muteLayer = 00000000;
+
+unsigned long automodificationtime;
+
+unsigned int ratioLength[nbLayer] = {100, 100, 100, 100}; // indique par combien de 100ème il faut multiplier les valeurs en lien avec le Varispeed : 100% = vitesse normale.   1% = 100 x plus lent ; 900 = 9x plus vite.
+unsigned int ratioCurrent[nbLayer] = {100, 100, 100, 100};
+unsigned int totalratioLength;
+byte varispeedState = 1;                              // valeurs : 1 = OFF ; 2 = ON ; 3 = FIX ; 4 = MOD
+byte layerChannel[nbLayer] = {0, 0, 0, 0};            // soit MIDI channel 1, 1,  1 et 1 !
+byte fidelityLayer_[nbLayer] = {100, 100, 100, 100}; // d'emblée on joue toutes les notes, mais on pourra réduire cette "fidélité" !
+
+bool SqueezeOn = false;
+bool KeepLength = false;
+
+// Channel To Behringer DSP2024P Virtualizer
+
+int CHSendToSampler; // les bits indiquent si le channel doit être envoyé au sampler : ex SendToSampler >> 3 == 1 alors on fait que que jouer note, on envoie des CC au channel 3 pour jouer un sample
+int CHMuteNote;      // idem pour indiquer que le channel ne doit pas jouer de notes.   intéressant si on veut exclusivement faire jouer le sampler sur un channel
+
+// variables utilisées par le GATED multiple
+byte NbMultiplications = 4;
+String MultiplicationsString = nulString;
+; // il faut trouver comment on définit la taille max d'un String !
+
+
+//complexSqueeze
+bool complexSqueeze = false;
+
+// VLV Glitch : reprend les constantes habituellement utilisées par VLVRead pour permettre de les faire glitcher.
+// initialement elles sont évidemment correctes.
+// il faut créer des fonctions permettant de les faire varier.
+
+long iVLVDelta = 0;
+long iDureeDelta = 0;
+long imididouble = 0;
+byte iShiftDelta = 8;
+byte iShiftDuree = 7;
+byte iDureeMask = B01111111;
+byte iMask2 = B10000000;
+
+unsigned int CutOffDureeDelta = 20000; // NOTE **** devra peut-être être changée pour ne pas avoir de cutoff qd on veut perfection
+int BringToDureeDelta = 0;
+float RatioDeltaToMsec = 4.0;
+byte NumRatioDeltaToMsec = 4;
+byte DenomRatioDeltaToMsec = 1;
+
+bool playParallelMidiON = false;
+bool MUSTreadHeader = true;
+
+// phasage ;
+int kPhasage = 1;
+int nPhasage = 32;
+
+point Centre;
+byte CentreX = 50;
+byte CentreY = 63;
+
+float RapportPitchLayer;
+bool dontRotateLength = false;
+
+unsigned int midiRedirect[16] = {0}; // contient la matrice de redirection des CH midi
+// peut être à sauver/charger .   peut être en crééer plusieurs pour faire des switchs rapides
+// NOTE¨**** pour plus tard !
+
+byte targetMidiMatrix(0);
+bool SkipChunck(false);
+
+int LGnotMax(100);
+
+byte dynamicLOcut(2);
+byte dynamicHIcut(127);
+
+bool sendCCtoTX81Z = false;
+bool sendCCtoSHERMAN = false;
+
+unsigned int mapHTargetMax(1000), mapHTargetMin(0), mapHSourceMax(1000), mapHSourceMin(0);
+
+byte typeBreathe(0);
+
+bool showFract = true; // si true va montrer tous les temps en fractions !
+
+bool CCModActif(false);
+ 
+ 
+ 
+ 
+-0.58 44.84
+4.36 50.84
+3.06 50.63
+ 
+ 
+130.61 33.62
+135.75 35.02
+130.61 33.62
+131.58 34.23
+12.48 41.89
+4.36 50.84
+ 
+ 
+ 
+10.64 35.82
+10.44 36.02
+-73.61 45.49
+4.36 50.84
+4.36 50.84
+ 
+ 
+ 
+ 
+15.31 -4.32
+4.36 50.84
+ 
+ 
+4.86 50.46
+4.36 50.84
+ 
+ 
+3.48 50.59
+4.86 50.46
+5.29 51.71
+4.36 50.84
+ 
+ 
+ 
+4.83 45.75
+4.36 50.84
+ 
+ 
+5.73 50.61
+5.57 50.64
+5.24 50.63
+5.79 50.59
+5.57 50.64
+ 
+ 
+3.06 50.63
+-78.90 35.79
+3.06 50.63
+ 
+ 
+4.71 49.76
+3.06 50.63
+-8.00 12.64
+ 
+ 
+2.35 48.85
+-73.61 45.49
+4.36 50.84
+ 
+ 
+3.23 50.54
+3.04 50.62
+4.36 50.84
+ 
+ 
+3.06 50.63
+-73.61 45.49
+5.22 46.20
+-1.57 49.18
+ 
+ 
+4.13 49.85
+3.06 36.77
+4.36 50.84
+4.83 45.75
+
+
+4.54 50.48
+4.69 50.55
+4.57 50.51
+4.36 50.84
+ 
+ 
+2.37 48.69
+-1.68 48.11
+19.93 50.06
+-4.10 47.99
+ 
+4.36 50.84
+ 
+ 
+ 
+114.16 22.27
+4.36 50.84
+ 
+ 
+3.28 49.84
+3.13 50.62
+3.06 50.63
+ 
+ 
+-1.62 49.64
+13.38 52.51
+3.06 50.63
+2.46 44.47
+ 
+ 
+3.30 50.72
+3.61 50.59
+3.73 50.73
+4.36 50.84
+ 
+ 
+3.06 50.63
+2.88 50.68
+3.06 50.63
+3.17 50.69
+1.90 50.84
+ 
+ 
+2.21 50.99
+3.06 50.63
+3.38 50.60
+4.36 50.84
+ 
+ 
+3.23 49.80
+1.44 43.60
+2.17 41.38
+ 
+4.36 50.84
+4.36 50.84
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

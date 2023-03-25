@@ -1,0 +1,13 @@
+// doit aller vers STEPZ 
+    pageEndUser = softwareValueEncoderUp;
+    currentPageStepz = pageEndUser;
+
+    if (pageEndUser > numberMaxPageStepz)
+    {
+        currentPageStepz = numberMaxPageStepz;
+    }
+
+    if (pageEndUser < 0)
+    {
+        currentPageStepz = 0;
+    }
