@@ -1,8 +1,5 @@
 
 
-// toujours +1 par rapport au nb de transfo existantes
-// NOTE on devrait pouvoir le déduire de la taille pragmatique de TRANSFO
-
 /*
 note sur l'affichage des channels
 on affiche le numéro ENDUSER, en tous cas dans ce tableau-ci
@@ -12,8 +9,8 @@ il ne faut pas confondre les valeurs de channel : 1-16, correspondant à 0-15 ma
 et le choix des layers :
 les valeurs y vont de 0 ( rien de sélectionné 0000) à 15 ( tout sélectionné 1111 )
 nénamoins nous rajoutons 16 ( 10000 ) qui signifiera : les layers actifs !!!!
-
 */
+
 const byte TRANSFO_NO_VALUE = B0000; // signifie qu'on va gérer l'affichage nous-même
 const byte TRANSFO_SIMPLE_VALUE = B0001;
 const byte TRANSFO_PERCENT = B00011;

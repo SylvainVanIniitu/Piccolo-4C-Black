@@ -42,11 +42,6 @@ de la sorte ce tableau sera celui qui sera modifié, pas toutes les procédures
 plus facile aussi si certaines fonctions sont supprimées ou pour les réarranger
 */
 
-// #include <pointers.h>
-// # include <harmonize.h>
-
-// #include "SdFat.h"
-
 // PROTOTYPE d'une fc qui se trouve dans fcConditional.h
 
 byte meanPitch_MultipleLayer(byte thoseLayer);
@@ -74,7 +69,6 @@ int noteADegreesAboveNoteBinGammeCmodeD(int aDegrees, int noteB, int gammeC, int
 void verboseFullPile(int i);															 // dans SubParts
 void verbosePrintln(String phrase);
 
-// #include <saveLoadLocal.h>
 
 void Transformation(int TTT, int BBB)
 {

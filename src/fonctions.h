@@ -853,7 +853,7 @@ if ( cmd_isolee == 0x10 ) // DMX
 
 int highest = -1 ; // valeur au départ négative, si on trouve un note qui convient, prendra la valeur de la dernière ; 
 
-		for (unsigned int j = 0; j < taille; j++)
+		for ( int j = 0; j < taille; j++)
 		{
 
 			pileNote tempNote;
@@ -1429,7 +1429,7 @@ pitch = limiter(newPitch,0,127);
 
 							int highest = -1; // valeur au départ négative, si on trouve un note qui convient, prendra la valeur de la dernière ;
 
-							for (unsigned int j = 0; j < taille; j++)
+							for (  int j = 0; j < taille; j++)
 							{
 
 								pileNote tempNote;
@@ -3196,12 +3196,12 @@ void checkSkipChunckAndCalcGoOn()
 
 	// 22C01 nouveau loCut et hiCut pour durée delta
 
-	if (DureeDelta < loCutMIDI)
+	if ( (int) DureeDelta < loCutMIDI)
 	{
 		DureeDelta = getValueStraightOrFromSequence(loBringToMIDI, 0);
 	}
 
-	if (DureeDelta > hiCutMIDI)
+	if ( (int) DureeDelta > hiCutMIDI)
 	{
 		DureeDelta = getValueStraightOrFromSequence(hiBringToMIDI, 0);
 	}

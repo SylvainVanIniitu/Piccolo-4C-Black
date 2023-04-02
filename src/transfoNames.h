@@ -2,11 +2,8 @@
 
 void GetNameTransformation(int number, byte mode = 0)
 {
-	// première fois que je créer une fonction surchargée !
-	// la plupart du temps elle sera appelée sans le mode 1, qui rajoute un chiffre au début
-	//
 	// TODO DEBUG c'est moche, ça place le résultat dans la variable NameTransfo
-	// j'aimerais mieux que ça retourne un String !
+	// j'aimerais mieux que ça retourne un String !    mais c'est économe en mémoire... 
 	// pour le quick JUMP , voir SubParts.h
 	// void checkButton6LayerSelect ( void ) {
 	// byte jump[]={111,244,228,218,190,167,81,127,64,216,108,111} ;

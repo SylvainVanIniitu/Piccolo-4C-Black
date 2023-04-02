@@ -77,7 +77,7 @@ int transposeMIDIPlayer = 0 ;  // permettra de transposer en direct le jeu du mi
 
  int loCutMIDI = 0 ;
 int loBringToMIDI = 100 ;
-int hiCutMIDI = 10000 ; 
+ int hiCutMIDI = 10000 ; // garder int pour sauvegarde dans le fichier SD 
 int hiBringToMIDI = 10000 ; 
 
 int CHPinch = 1 ; // 1-16 midi ; 0 under = Seq 
@@ -88,13 +88,13 @@ int valuePinch = 1 ;
 
     // BLACK10 PRELEASE1
 
-    int acid_CH = 0; // CH pour la bassline Acid
+int acid_CH = 0; // CH pour la bassline Acid
 int acidNbFullNote = 10 ;
 int acidNbEmptyNote = 3 ; 
 int acidNbShortNote = 2 ; 
 int acidNbTripletNote = 0 ; 
 int acidNbSlideNote = 5 ; 
-// pour ces nombres, je n'emploie plsu des pourcentages, mais des ratio
+// pour ces nombres, je n'emploie plus des pourcentages, mais des ratio
 // par exemple si l'un vaut 2 et l'autre 3, la première apparaitra 2/(2+3) et l'autre 3/(2+3) 
 int acidPitchMin = 24 ; // pour Bhringer TD3 
 int acidPitchMax = 72 ; // pour Behringer TD3 
@@ -1060,50 +1060,10 @@ unsigned long value1000ticks;
 int calculatedBPM;
 unsigned long NbTicksQuarterNote;
 
-/* LE point sur ce qu'il faut développer : nov 2017
-
-qu'est-ce qui est prioritaire ?
-1. evolutory
-2. midi file read
-3. automation
-4. FX
-
-Display Fidelity : ajouter F
-display lenght : ajouter L
-FindNbFilesOnSD : ajouter variable qui contient ce nb au début, test quand load, qd save.  sera nécesaire pour RandomEvolution
-refaire le point sur RotKnob.   Valeur 0-1000 directement ? non, car faudrait scroller à mort.  il faut que le rotknob augmente d'une unité en fc du display en cours.
-FIXED, bug quand fc load et que carte est vide !
-crééer fc cleanup
-passer click2 et 3 sur les rotary encoders ?
-
-créer une double automation : enregistre un movemnt de potard sur la duée du layer.   nb de valeurs max ? lissées ?
-créer un autre tableau avec des events : arrive à un moment, fréquence indépendante, types d'actiosn différentes
+/* LE point sur ce qu'il reste à développer : nov 2017
 
 SAVE :
 fc qui vérifie si un fichier existe déjà
-
-EVENTS
-développer un tableau avec 32 events : durée loop, moment dans le loop ( pour 2 loops idem, distinguer moments ), type : CC, MODIFICATIO, chgt valeur constante
-
-remplacer les 2 boutons médiocres du côté par le PUSH des rotary encoders !
-
-pour le développement du stochastic Dauby, avant l'implémentation des Event Layer
-ajouter des modifications de valeur pour
-la valeur random de split note, RndUp, Shrink+valeur du Shrink, decimate, deplace
-à plus long terme:  il doit modifier des valeurs de VOICES, pas que VCED, mais aussi ACED, de I01 à I32
-ensuite dans le mode Performance, il charge les voices et joue de plusieurs Voix, qu'il modifie progressivement
-ajouter un autoharmonize ON OFF
-
-
-
-à développer :
--> PROGMEM pour les valeurs statiques du tableau Transfo
--> construire un nouveau board stable et enboitable
-
-3 les modifications de mélodie ( à développer longuement, pê avec Alice ?
-/ RANDOMIZE MELODY /BAROCCO (ajoute ornementation ): utiliser les fc harmonize pour avoir notes OK
-
-ajout d'un controlleur UC33 pour les durées
 
 8 le système évolutionnaire (EEPROM) : un bouton enregistre un chouette résultat ; un autre permet de
 sauter à une autre chouette évolution ; un troisième fait un mix de 2 evolutions = sera la version WALLACE
@@ -1123,24 +1083,16 @@ int currentFileNumber = 1;
 // Modifier l'emploi des STRINGS
 
 // char *letters = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";  // 66
-// j'ai pas compris avec ce *
+// A RECODER PLUS SIMPLEMENT 
 
 String letters[40] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
 
 // String randString   = nulString ; ;
 String fileString = nulString;
-;
-
-// File myFile;
-
-// String notename = ""  ;  // variable qui contiendra le nom de la note après la fonction
-
-// comment peut-on limiter la taille de String à 2 caractères ?
-
+ 
 // https://www.basicmusictheory.com/c-sharp-major-scale
 
 /* Unfortunately, most C++ compilers do not have any means of expressing binary numbers directly in source code.
-
 A few allow the prefix 0b followed by a series of 0 and 1 digits, e.g. 0b11 == 3.
 The C++ compiler used by Arduino does not support this syntax. However, starting in Arduino 0007,
 the constants B0 through B11111111 are defined for your convenience.
@@ -1170,13 +1122,10 @@ String ChoixString374 = nulString;
 
 String String153 = nulString;
 String ChoixString153 = nulString;
-// = " abcdefghij<klmnopqrst<uvwxyz0123<456789ABCD<EFGHIJKLMN<OPQRSTUVWXYZ<" ;
-// const byte tailleChoixString153 = 66 ;
 
 int nSwing = 4; // par défaut
 
 String String159 = nulString;
-// = "---" ;
 
 // const String flechegauche =  (String) ((char)(B01111111) ); // flèche vers gauche
 // const String flechedroite = (String) ((char)(B01111110) ); // flèche vers droite
@@ -1197,7 +1146,6 @@ String ChoixString156 = nulString;
 // const String preset156_2 = "" + barremilieu + flechedroite + barremilieu + flechedroite ;
 
 String preset156[] =
-
     {
         "custom",
         "-" + flechedroite + "-" + flechedroite,

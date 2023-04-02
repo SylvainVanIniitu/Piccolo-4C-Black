@@ -19,16 +19,19 @@ P::::::::P          i::::::i c:::::::::::::::::c c:::::::::::::::::co:::::::::::
 P::::::::P          i::::::i  cc:::::::::::::::c  cc:::::::::::::::c oo:::::::::::oo l::::::l oo:::::::::::oo              4::::::::4  cc:::::::::::::::c
 PPPPPPPPPP          iiiiiiii    cccccccccccccccc    cccccccccccccccc   ooooooooooo   llllllll   ooooooooooo                4444444444    cccccccccccccccc
 
-Copyright (C) 2016-2023 sylvain van iniitu - All rights reserved.
-www.iniitu.net
+2016-2023 sylvain van iniitu - some rights reserved -
    This program is free software; you can redistribute it and/or
    modify it under the terms of the Creative Commons 4.0 CC BY-NC-SA Licence
+
+www.iniitu.net
+you can support my music on Bandcamp > E42.A8  
+
 
 */
 
 // TODO
 
-// avant Versin RESIDENZ
+// avant Version RESIDENZ
 // J'ai sacrifié GetNameTest pour Comb2 ! il faut restaurer ça pour Teensy !
 
 // version qui effectue un pas en arrière concernant le CCMod
@@ -2737,11 +2740,11 @@ int tempFi = getValueStraightOrFromSequence(fidelityLayer_[i], 0 );
                                                                 deltaVelocite = deltaVelocite / (float)(realNbDeDelais - 1);
                                                             }
 
-                                                            long ajoutDelayViaSeq = 0;
+                                                            // long ajoutDelayViaSeq = 0;
 
                                                             int nowNbDeMsecPourDelais = getValueStraightOrFromSequence(nbDeMsecPourDelais[i], -1000);
 
-ajoutDelayViaSeq = nowNbDeMsecPourDelais ; // BLACK 10 
+// ajoutDelayViaSeq = nowNbDeMsecPourDelais ; // BLACK 10 : inutilisé semble-t-il TODO 
 
                                                             for (byte p = 0; p < realNbDeDelais; p++)
                                                             {
@@ -4138,7 +4141,7 @@ else   // délais négatifs = prémonitions
                                 Serial.print("*");
                                 (*playPtr).timeToPlayON = nowMillis - (nowMillis % layerLength[i]) + layerLength[i] + (*playPtr).startNote ;
 
-                                byte k = (*playPtr).channel;
+                                // byte k = (*playPtr).channel;
 
                                 int localPinchCHsize = getValueStraightOrFromSequence((*playPtr).pinchCH_size, 1);
                                 for (int z = 0; z < localPinchCHsize; z++)
