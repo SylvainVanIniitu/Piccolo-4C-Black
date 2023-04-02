@@ -1,16 +1,9 @@
-// #include <iostream>
-// #include <stdlib.h>     /* srand, rand */
-// #include <string.h>           /* strlen */
-// #include <ctime>
-// #include <windows.h>
-// #include <conio.h>
-
 // TODO
 // Clean par suppression
 // Clean par fluctuation
 // Clean par reproduction
 
-// Passage d'une gamme � une autre
+// Passage d'une gamme à une autre
 
 // PROTOTYPES
 bool isNoteInScaleMode(int z,int gammeActuelle,long  potVal3) ;

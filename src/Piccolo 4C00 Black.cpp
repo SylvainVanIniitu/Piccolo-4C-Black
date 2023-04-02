@@ -20,12 +20,12 @@ P::::::::P          i::::::i  cc:::::::::::::::c  cc:::::::::::::::c oo:::::::::
 PPPPPPPPPP          iiiiiiii    cccccccccccccccc    cccccccccccccccc   ooooooooooo   llllllll   ooooooooooo                4444444444    cccccccccccccccc
 
 2016-2023 sylvain van iniitu - some rights reserved -
-   This program is free software; you can redistribute it and/or
-   modify it under the terms of the Creative Commons 4.0 CC BY-NC-SA Licence
+This program is free software; you can redistribute it and/or
+modify it under the terms of the Creative Commons 4.0 CC BY-NC-SA Licence
 
 www.iniitu.net
-you can support my music on Bandcamp > E42.A8  
-
+you can support my music on Bandcamp > https://e42a8.bandcamp.com 
+if you would like to buy a PCB get in touch
 
 */
 

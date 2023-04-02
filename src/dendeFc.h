@@ -2,7 +2,9 @@
 /* *******************************************************************
 /
 /
-/  FONCTION FRACTALE, piquée à Dende, développé avec Antoine Pacifique
+/  FONCTION FRACTALE, piquée au développement de Dende, réalisé avec Antoine Pacifique
+/ support music : https://lepacifiquerecords.bandcamp.com
+/ but dont forget : https://e42a8.bandcamp.com 
 /
 /
 / ****************************************************************** */
