@@ -1,3 +1,0 @@
-insérer ici les fichiers pour construire la Machine
-et dans Gerber\ les fichiers prêts à l'exportation
-ne pas oublier les empreintes SVP 
