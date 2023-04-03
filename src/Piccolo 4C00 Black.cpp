@@ -5443,6 +5443,7 @@ else   // délais négatifs = prémonitions
         }
     }
 
+/*
     long valueFader;
 
     valueFader = analogRead(A0);
@@ -5455,6 +5456,7 @@ else   // délais négatifs = prémonitions
     {
         measuredHighest = valueFader;
     }
+*/
 
     /* 
 Serial.print(valueFader);
@@ -5464,6 +5466,8 @@ Serial.print("-");
 Serial.print(measuredHighest);
 Serial.print("] ");
  */
+
+/* TODO Fix fader value 
 
     valueFader = marginMap(valueFader, 10, 0, 127);
 
@@ -5479,7 +5483,8 @@ Serial.print("] ");
     {
         display = "Tournez Tournai";
     }
- 
+
+*/  
 
     ///////////////////////////////////////////////////////
     /// FIN DE LA BOUCLE MAJEURE

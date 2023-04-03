@@ -78,7 +78,7 @@ void initialisationsDiverses(void)
 
     PiccoloVersion = F("Piccolo visiting"); // petit subterfuge pour ne rien laisser en mémoire vive
     // BLACK08 euh... du coup ça l'y charge, non ?
-    PiccoloDate = F("13.7.2022");
+    PiccoloDate = F("3.4.2023");
     midiname = F("turca.mid");
 
     ChoixString153 = F("<_abcdefghij<klmnopqrst<uvwxyz0123<456789ABCD<EFGHIJKLMN<OPQRSTUVWXYZ<");
