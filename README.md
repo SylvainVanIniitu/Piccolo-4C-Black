@@ -40,11 +40,13 @@ If you want to support, please buy my music at bandcamp E42.A8 : https://e42a8.b
 
 and if you like it : buy some more at https://stilll-off.bandcamp.com/album/sylvain-van-iniitu-plays-django-reinhardt 
 
-or tanukirecords.bandcamp.com/album/vulgar-display-of-debug-vol-3-thrift-thrift-horatio
+or http://tanukirecords.bandcamp.com/album/vulgar-display-of-debug-vol-3-thrift-thrift-horatio
 
 and yes, invite me for a workshop somewhere, and let me play a concert in your city ! 
 
 P x L x U x R
+
+sylvain van iniitu 
 
 
 
