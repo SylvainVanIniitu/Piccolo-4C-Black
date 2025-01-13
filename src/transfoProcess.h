@@ -7144,7 +7144,7 @@ void Transformation(int TTT, int BBB)
 
 						unsigned long differenceEuc;
 
-						differenceEuc = abs(tempNote.startNote - euclidianMatrixTime[m]);
+						differenceEuc = abs((long) tempNote.startNote - (long) euclidianMatrixTime[m]);
 
 						if (foundOne == false)
 						{
@@ -8156,7 +8156,7 @@ void Transformation(int TTT, int BBB)
 							pileNote tempNote2;
 							tempNote2 = ZEROgetNoteFromPile(pInitial[i], k);
 
-							if ((tempNote.note == tempNote2.note) && (abs(tempNote2.startNote - tempNote.endNote) < (unsigned long)potVal2) && (tempNote.channel == tempNote2.channel))
+							if ((tempNote.note == tempNote2.note) && (abs((long)tempNote2.startNote - (long)tempNote.endNote) < (long)potVal2) && (tempNote.channel == tempNote2.channel))
 
 							{
 								// alors on fusionne
@@ -10168,7 +10168,7 @@ void Transformation(int TTT, int BBB)
 
 						unsigned long differenceEuc;
 
-						differenceEuc = abs(tempNote.startNote - euclidianMatrixTime[m]);
+						differenceEuc = abs((long)tempNote.startNote - (long)euclidianMatrixTime[m]);
 
 						if (foundOne == false)
 						{

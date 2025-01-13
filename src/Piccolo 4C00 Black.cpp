@@ -1459,6 +1459,7 @@ case 0:            affiche += (F("1.classic notes"));
                         }
                     }
                 }
+                
                 else if (keyboardMode == 4) // Memory Karakt
                 {
                     int memoireVisee = initialNote % startingKbStep; // par défaut 60, penser plus tard à pouvoir ajuster, surtout si d'autres touches font shortcut
@@ -1470,15 +1471,19 @@ case 0:            affiche += (F("1.classic notes"));
                     loadKarakt_from_KMem(memoireVisee);
                     currentKarakt = memoireVisee ;
                 }
+                
                 else if (keyboardMode == 5) // Launch CC String
                 {
                 }
+                
                 else if (keyboardMode == 6) // One shot layer
                 {
                 }
+                
                 else if (keyboardMode == 7) // One shot Karakt
                 {
                 }
+                
                 else if (keyboardMode == 8) // Memory + Karakt
                 {
                     // int noteModulo = note % 12; 
@@ -1531,8 +1536,10 @@ case 0:            affiche += (F("1.classic notes"));
 
                 else // BLACK09
 
-                    if (keyboardMode == 0 && note != 0)
+                if (keyboardMode == 0 && note != 0)
                 {
+                      verboseSerial(0x90 + channel, note, velocity); 
+
                     // DEBUG pour Cell il faut quand même connaître le CH également ?
                     if (isNoteCellConsolidated(channel, note)) // 1C87
                     {
@@ -1564,6 +1571,9 @@ case 0:            affiche += (F("1.classic notes"));
 
                             PlaynoteOn_(0x90 + channel, note, velocity);
                             // 2C28 si on enrgsitre sur plusieurs layers, va donc jouer cette note plusieurs fois !!!
+
+                            //4C01
+                          
                         }
                     }
 
@@ -1728,7 +1738,7 @@ case 0:            affiche += (F("1.classic notes"));
 
                 if (keyboardMode == 0)
                 {
-
+               verboseSerial(0x80 + channel, note, velocity); 
                     // 2C28 sortie de la boucle
 
                     if (isNoteCellConsolidated(channel, note))
@@ -1739,6 +1749,8 @@ case 0:            affiche += (F("1.classic notes"));
                         if (softPass)
                         {
                             PlaynoteOn_(0x80 + channel, note, velocity);
+
+               
                         }
                     }
                     else

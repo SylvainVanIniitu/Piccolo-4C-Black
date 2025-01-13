@@ -570,7 +570,7 @@ void midiplayerdelay()
 void verboseSerial(byte cmd, byte pitch, byte velocity)
 {
 
-	if (verboseSerial_sendToSerial && verboseSerial_string == false)
+	if (( verboseSerial_sendToSerial && verboseSerial_string ) == false)
 	{
 
 		if (verboseSerial_timeStamp)
@@ -614,7 +614,7 @@ void verboseSerial(byte cmd, byte pitch, byte velocity)
 		}
 	}
 
-	if (verboseSerial_sendToSerial && verboseSerial_string == true)
+	if (( verboseSerial_sendToSerial && verboseSerial_string ) == true)
 	{
 		if (verboseSerial_timeStamp)
 		{

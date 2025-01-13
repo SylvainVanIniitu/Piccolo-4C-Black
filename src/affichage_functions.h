@@ -97,7 +97,7 @@ bool readyToUpdateScreen = false;
 
 // printRot2
 byte const printRotSlots(10);
-String Rmemorytexte[printRotSlots] = nulString;
+String Rmemorytexte[printRotSlots] ;
 byte Rpreviousl[printRotSlots]{(0)};
 unsigned long Rtempoinit[printRotSlots]{(0)};
 bool Rfirsttime[printRotSlots];
