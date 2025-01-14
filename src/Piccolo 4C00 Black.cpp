@@ -19,7 +19,7 @@ P::::::::P          i::::::i c:::::::::::::::::c c:::::::::::::::::co:::::::::::
 P::::::::P          i::::::i  cc:::::::::::::::c  cc:::::::::::::::c oo:::::::::::oo l::::::l oo:::::::::::oo              4::::::::4  cc:::::::::::::::c
 PPPPPPPPPP          iiiiiiii    cccccccccccccccc    cccccccccccccccc   ooooooooooo   llllllll   ooooooooooo                4444444444    cccccccccccccccc
 
-2016-2023 sylvain van iniitu - some rights reserved -
+2016-2025 sylvain van iniitu - some rights reserved -
 This program is free software; you can redistribute it and/or
 modify it under the terms of the Creative Commons 4.0 CC BY-NC-SA Licence
 
