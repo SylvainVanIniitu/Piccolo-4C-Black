@@ -2553,6 +2553,7 @@ int tempFi = getValueStraightOrFromSequence(fidelityLayer_[i], 0 );
                                                                 // int realAjout = random(-ajout, ajout + 1);
                                                                 (*playPtr).channelReallyPlayed = ajout % 16;
                                                                 // TODO à revoir si on passen en 32CH sur 2 MIDI OUT !
+                                                              // ici un BUG repéré septembre 2025 : il y a confusion entre CH machine et CH user (+1)
                                                             }
 
                                                             if (sequence[t].action == 21) // ADD CH
