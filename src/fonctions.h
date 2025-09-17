@@ -5783,29 +5783,31 @@ byte limiterForPitch(int pitchInitial)
 {
 	int note = pitchInitial;
 
-	if (pitchInitial > 127) // 0111 1111
-	{
+	while (note > 127) // 0111 1111
+	{		note = note - 12 ; }    // SEPT 2025
 		// d'abord trouver la note
-		note = pitchInitial % 12;
+		// note = pitchInitial % 12;
 		// ensuite on ramène à la dernière note qui a cette valeur
-		note = 108 + note;
-		if (note > 127)
-		{
-			note = note - 12;
-		}
-	}
+		// note = 108 + note;
+		// if (note > 127)
+		// {
+		//	note = note - 12;
+		// }
+	// }
 
-	if (pitchInitial <= 0) // 0111 1111
-	{
+	while ( note < 0 ) { note = note + 12 ; } 
+		
+//		(pitchInitial <= 0) // 0111 1111
+//	{
 		// d'abord trouver la note
-		note = pitchInitial % 12;
+//		note = pitchInitial % 12;
 		// ensuite on ramène à la dernière note qui a cette valeur
-		note = 0 + note;
-		if (note <= 0)
+//		note = 0 + note;
+	//	if (note <= 0)
 		// 1C93 j'ai mis = car si c'est un C0 il ne sera pas entendu et considéré comme nul
-		{
-			note = note + 12;
-		}
+	//	{
+		//	note = note + 12;
+	//	}
 	}
 
 	byte note2 = (byte)note;
