@@ -1192,7 +1192,7 @@ byte ThruWhere = 100; // valeurs 0 à 15 enverront à terme vers le channel spé
 // int derniereA  = LOW;
 // int n = LOW;
 
-bool FunkyVel = false;
+bool FunkyVel = true ;
 int FunkyVelValue[nbLayer] = {0};
 
 // byte calcnote ;
