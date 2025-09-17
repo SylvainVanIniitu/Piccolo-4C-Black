@@ -952,8 +952,9 @@ int newPitch = (int) pitch + (int) transposeMIDIPlayer ;
 pitch = limiter(newPitch,0,127); 
 	}
 
-		if (FunkyVel == true && cmd_isolee == 0x90) // 2C27
-		{
+		// if (FunkyVel == true && cmd_isolee == 0x90) // 2C27
+	if ( cmd_isolee == 0x90) // SEPT 2025
+	{
 			signed int funk(0);
 
 			signed int add = random(0, FunkyVelValue[layer]); // est la valeur absolue qui peut être ajoutée à une vélocité
