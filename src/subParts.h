@@ -76,7 +76,7 @@ void initialisationsDiverses(void)
     //   1 to 16: classic channels. (transposed to 0-15 for binary transmission)
     // 17+: OFF (nothing sent)
 
-    PiccoloVersion = F("Piccolo gRx2025"); // petit subterfuge pour ne rien laisser en mémoire vive
+    PiccoloVersion = F("Piccolo THOU25"); // petit subterfuge pour ne rien laisser en mémoire vive
     // BLACK08 euh... du coup ça l'y charge, non ?
     PiccoloDate = F("13.1.2025");
     midiname = F("turca.mid");
